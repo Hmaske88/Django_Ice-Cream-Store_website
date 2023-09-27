@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}contact{% endblock title %}
+
+{% block body %}
+
+<style>
+    img, svg {
+    width: 100vw;
+    height: 70vh;
+    }
+</style>
+
+<div class="container-fluid px-0">
+    <img src="/static/contactUs.webp" alt="...">
+    <h1 class="text-center my-3">Contact Us</h1>
+</div>
+
+<div class="container">
+    <form method="POST" action="/contact">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email">
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter the phone number">
+        </div>
+    
+        <div class="mb-3">
+            <label for="desc" class="form-label">Express your thoughts...</label>
+            <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+        </div>
+
+        <div class="text-center mb-5">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock body %}
